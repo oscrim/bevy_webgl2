@@ -140,7 +140,7 @@ pub fn webgl2_handle_window_created_events_system() -> impl FnMut(&mut World) {
                 let winit_windows = world.get_resource::<bevy::winit::WinitWindows>().unwrap();
                 let winit_window = winit_windows.get_window(window_id).unwrap();
                 let mut render_resource_context = WebGL2RenderResourceContext::new(device.clone());
-                render_resource_context.initialize(&winit_window);
+                render_resource_context.initialize(winit_window);
                 render_resource_context
             };
             world.insert_resource::<Box<dyn RenderResourceContext>>(Box::new(
