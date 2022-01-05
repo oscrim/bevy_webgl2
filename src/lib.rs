@@ -47,7 +47,7 @@ pub enum WebGL2Stage {
 pub struct WebGL2Plugin;
 
 impl Plugin for WebGL2Plugin {
-    fn build(&self, app: &mut AppBuilder) {
+    fn build(&self, app: &mut App) {
         {
             let world = app.world_mut();
             let cell = world.cell();

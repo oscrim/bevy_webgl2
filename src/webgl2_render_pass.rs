@@ -1,13 +1,13 @@
 use crate::{gl_call, renderer::*, Buffer, ScissorsState};
 use bevy::render::{
     pass::RenderPass,
-    pipeline::{
+    render_resource::{
         BindGroupDescriptorId, BlendFactor, BlendOperation, CullMode, FrontFace, IndexFormat,
-        PipelineDescriptor,
+        PipelineDescriptor, BufferId, PrimitiveTopology, BindGroupId,
     },
-    renderer::{BindGroupId, BufferId, BufferUsage, RenderContext},
+    renderer::{BufferUsage, RenderContext},
 };
-use bevy::{asset::Handle, render::pipeline::PrimitiveTopology};
+use bevy::{asset::Handle};
 use std::ops::Range;
 
 pub struct WebGL2RenderPass<'a> {
@@ -308,14 +308,14 @@ impl<'a> RenderPass for WebGL2RenderPass<'a> {
 
         if let Some(state) = &pipeline.depth_stencil {
             let depth_func = match state.depth_compare {
-                bevy::render::pipeline::CompareFunction::Never => Gl::NEVER,
-                bevy::render::pipeline::CompareFunction::Less => Gl::LESS,
-                bevy::render::pipeline::CompareFunction::Equal => Gl::EQUAL,
-                bevy::render::pipeline::CompareFunction::LessEqual => Gl::LEQUAL,
-                bevy::render::pipeline::CompareFunction::Greater => Gl::GREATER,
-                bevy::render::pipeline::CompareFunction::NotEqual => Gl::NOTEQUAL,
-                bevy::render::pipeline::CompareFunction::GreaterEqual => Gl::GEQUAL,
-                bevy::render::pipeline::CompareFunction::Always => Gl::ALWAYS,
+                bevy::render::render_resource::CompareFunction::Never => Gl::NEVER,
+                bevy::render::render_resource::CompareFunction::Less => Gl::LESS,
+                bevy::render::render_resource::CompareFunction::Equal => Gl::EQUAL,
+                bevy::render::render_resource::CompareFunction::LessEqual => Gl::LEQUAL,
+                bevy::render::render_resource::CompareFunction::Greater => Gl::GREATER,
+                bevy::render::render_resource::CompareFunction::NotEqual => Gl::NOTEQUAL,
+                bevy::render::render_resource::CompareFunction::GreaterEqual => Gl::GEQUAL,
+                bevy::render::render_resource::CompareFunction::Always => Gl::ALWAYS,
             };
             gl_call!(gl.depth_func(depth_func));
         }
