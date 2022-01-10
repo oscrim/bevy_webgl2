@@ -21,9 +21,8 @@ use bevy::ecs::{
 };
 use bevy::reflect::TypeUuid;
 use bevy::render::{
-    pipeline::PipelineDescriptor,
+    render_resource::{PipelineDescriptor, Shader, ShaderStage},
     renderer::{shared_buffers_update_system, RenderResourceContext, SharedBuffers},
-    shader::{Shader, ShaderStage},
     RenderStage,
 };
 

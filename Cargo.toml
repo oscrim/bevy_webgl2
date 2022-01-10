@@ -21,9 +21,9 @@ default = [
 ]
 
 [dependencies]
-winit = {git  = "https://github.com/TotalKrill/winit.git", branch = "dummy-feature", version = "0.24", features = ["web-sys"]}
-bevy = { git = "https://github.com/oscrim/bevy.git", branch = "0.5.0-wgpu-fix", default-features=false }
-bevy_render = { git = "https://github.com/oscrim/bevy.git", branch = "0.5.0-wgpu-fix", default-features=false }
+winit = {git  = "https://github.com/oscrim/winit.git", branch = "dummy-feature", version = "0.24", features = ["web-sys"]}
+bevy = { version = "0.6", default-features=false }#{ git = "https://github.com/oscrim/bevy.git", branch = "0.5.0-wgpu-fix", default-features=false }
+bevy_render = { version = "0.6", default-features=false }#{ git = "https://github.com/oscrim/bevy.git", branch = "0.5.0-wgpu-fix", default-features=false }
 
 regex = "1.5"
 cfg-if = "1.0"
